@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const updateCounter = () => {
       const target = +counter.getAttribute("data-target");
       const count = +counter.innerText;
-      const increment = target / 400; // Smaller increment for a slower counter
+      const increment = target / 700; // Smaller increment for a slower counter
 
       if (count < target) {
         counter.innerText = `${Math.ceil(count + increment)}`;
@@ -68,19 +68,24 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  // Slide-in Animation for Picture on Scroll
-  const picture = document.querySelector(".about-picture"); // Add a class to your picture element in HTML
+  const picture = document.querySelector(".about-picture");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          picture.classList.add("slide-in");
-        }
-      });
-    },
-    { threshold: 0.1 } // Adjust threshold for when the animation should trigger
-  );
+  if (picture) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            picture.classList.add("slide-in");
+          } else {
+            // Remove the slide-in class when the element leaves the viewport
+            picture.classList.remove("slide-in");
+          }
+        });
+      },
+      { threshold: 0.1 } // Adjust this threshold as needed
+    );
 
-  observer.observe(picture);
+    observer.observe(picture);
+  }
 });
+  
