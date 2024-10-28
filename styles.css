@@ -116,4 +116,22 @@ button:hover {
       font-size: 20px;
     }
 }
+/* Styles for screens smaller than a PC screen (e.g., tablets, mobile devices) */
+@media (max-width: 1024px) {
+    /* Add your styles here */
+  nav{
+    padding: 0;
+    margin: 0;
+    font-size:20px;
+  }
+}
+
+/* Styles for PC screens (1024 pixels and above) */
+@media (min-width: 1024px) {
+    about-picture{
+      width: 70%;
+      Height:200px;
+    }
+}
+
 
