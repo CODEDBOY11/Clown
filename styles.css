@@ -138,7 +138,23 @@ button:hover {
       width:60%;
       height:200px;
     }
-     
+       padding:0;
+      margin: 0;
+      font-size:20px;
+    }
+       img{
+         height:200px;
+         width:60%;
+       }
+    header{
+      padding:0;
+      margin:0;
+    }
+    .nav{
+      padding:0;
+      margin:0;
+      font-size:30px;
+  }
         
   }
    @media only screen and (min-width: 768px){
