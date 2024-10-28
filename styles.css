@@ -120,10 +120,7 @@ button:hover {
       margin: 0;
       font-size:20px;
     }
-       img{
-         height:200px;
-         width:60%;
-       }
+      
     header{
       padding:0;
       margin:0;
@@ -137,17 +134,14 @@ button:hover {
    
   @media only screen and (min-width: 601px){
     . about-picture{
-      width:60%;
+      width:80%;
       height:200px;
     }
        padding:0;
       margin: 0;
       font-size:20px;
     }
-       img{
-         height:200px;
-         width:60%;
-       }
+       
     header{
       padding:0;
       margin:0;
@@ -161,21 +155,21 @@ button:hover {
   }
    @media only screen and (min-width: 768px){
 about-picture{
-      width:60%;
+      width:80%;
       height:200px;
 }
     }
 
   @media only screen and (min-width: 992px){
     about-picture{
-      width:60%;
+      width:80%;
       height:200px;
     }
     }
    
   @media only screen and (min-width:1920px){
     about-picture{
-      width:60%;
+      width:80%;
       height:200px;
     }
   }
