@@ -104,9 +104,9 @@ button:hover {
   transform: translateX(-50px); /* Start slightly to the left */
   transition: opacity 1.5s ease, transform 1.5s ease; /* Slow transition */
   border: 1px solid white;
-  border-radius: 100px;
+  border-radius: 50px;
   height:250px;
-  width:70%;
+  width:100%;
 }
 
 .about-picture.slide-in {
