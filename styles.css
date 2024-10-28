@@ -111,18 +111,20 @@ button:hover {
   opacity: 1;
   transform: translateX(0); /* Slide into place */
 }
-  @media only screen and (max-width: 600px) {
-    . container{
-      font-size: 20px;
-    }
-}
+
 /* Styles for screens smaller than a PC screen (e.g., tablets, mobile devices) */
 @media (max-width: 1024px) {
-    /* Add your styles here */
+    
   nav{
     padding: 0;
     margin: 0;
-    font-size:20px;
+    font-size:10px;
+    
+  }
+  img{
+    width: 70%;
+    height: 200px;
+    
   }
 }
 
