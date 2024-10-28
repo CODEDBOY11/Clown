@@ -105,6 +105,8 @@ button:hover {
   transition: opacity 1.5s ease, transform 1.5s ease; /* Slow transition */
   border: 1px solid white;
   border-radius: 100px;
+  height:250px;
+  width:70%;
 }
 
 .about-picture.slide-in {
