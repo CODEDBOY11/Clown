@@ -101,12 +101,13 @@ button:hover {
 }
 .about-picture {
   opacity: 0;
-  transform: translateX(-100px); /* Initial position, adjust as needed */
-  transition: all 0.6s ease; /* Control animation speed */
+  transform: translateX(-50px); /* Start slightly to the left */
+  transition: opacity 1.5s ease, transform 1.5s ease; /* Slow transition */
 }
 
 .about-picture.slide-in {
   opacity: 1;
-  transform: translateX(0); /* Final position */
-  }
+  transform: translateX(0); /* Slide into place */
+}
+
   
