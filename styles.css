@@ -103,6 +103,8 @@ button:hover {
   opacity: 0;
   transform: translateX(-50px); /* Start slightly to the left */
   transition: opacity 1.5s ease, transform 1.5s ease; /* Slow transition */
+  border: solid 1px white;
+  border-radiux: 30px;
 }
 
 .about-picture.slide-in {
