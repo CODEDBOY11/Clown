@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  // Intersection Observer for the Picture Slide-in Effect
+  
   const picture = document.querySelector(".about-picture");
 
   if (picture) {
@@ -76,20 +76,16 @@ document.addEventListener("DOMContentLoaded", () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Remove the class and re-add it to restart the animation
-            picture.classList.remove("slide-in");
-            // Use requestAnimationFrame to allow reflow
-            requestAnimationFrame(() => picture.classList.add("slide-in"));
+            picture.classList.add("slide-in");
           } else {
-            // Remove the class when it leaves the viewport to reset
             picture.classList.remove("slide-in");
           }
         });
       },
-      { threshold: 0.1 } // Adjust threshold as needed
+      { threshold: 0.1 } // Trigger when 10% of the image is in view
     );
 
     observer.observe(picture);
   }
 });
-                          
+  
