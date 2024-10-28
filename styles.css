@@ -111,5 +111,8 @@ button:hover {
   opacity: 1;
   transform: translateX(0); /* Slide into place */
 }
-
+img{
+  border: solid 1px white;
+  border-radius: 70px;
+}
   
