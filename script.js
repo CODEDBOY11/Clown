@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const updateCounter = () => {
       const target = +counter.getAttribute("data-target");
       const count = +counter.innerText;
-      const increment = target / 200;
+      const increment = target / 400; // Smaller increment for a slower counter
 
       if (count < target) {
         counter.innerText = `${Math.ceil(count + increment)}`;
-        setTimeout(updateCounter, 20);
+        setTimeout(updateCounter, 50); // Increase delay to slow down
       } else {
         counter.innerText = target;
       }
@@ -67,4 +67,20 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("There was a problem sending the message.");
       });
   });
+
+  // Slide-in Animation for Picture on Scroll
+  const picture = document.querySelector(".about-picture"); // Add a class to your picture element in HTML
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          picture.classList.add("slide-in");
+        }
+      });
+    },
+    { threshold: 0.5 } // Adjust threshold for when the animation should trigger
+  );
+
+  observer.observe(picture);
 });
