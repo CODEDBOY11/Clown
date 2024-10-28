@@ -112,28 +112,40 @@ button:hover {
   transform: translateX(0); /* Slide into place */
 }
 
-/* Styles for screens smaller than a PC screen (e.g., tablets, mobile devices) */
-@media (max-width: 1024px) {
-    
-  nav{
-    padding: 0;
-    margin: 0;
-    font-size:10px;
-    
-  }
-  img{
-    width: 70%;
-    height: 200px;
-    
-  }
-}
-
-/* Styles for PC screens (1024 pixels and above) */
-@media (min-width: 1024px) {
-    about-picture{
-      width: 70%;
-      Height:200px;
+  @media only screen and (max-width: 600px){
+    nav{
+      padding:0;
+      margin: 0;
+      font-size:10px;
     }
+       
+  }
+   
+  @media only screen and (min-width: 601px){
+    . about-picture{
+      width:60px;
+      height:200px;
+    }
+     
+        
+  }
+   @media only screen and (min-width: 768px){
+about-picture{
+      width:60px;
+      height:200px;
 }
+    }
 
-
+  @media only screen and (min-width: 992px){
+    about-picture{
+      width:60px;
+      height:200px;
+    }
+    }
+   
+  @media only screen and (min-width:1920px){
+    about-picture{
+      width:60px;
+      height:200px;
+    }
+  }
