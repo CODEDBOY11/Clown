@@ -99,3 +99,14 @@ button:hover {
     opacity: 1;
   }
 }
+.about-picture {
+  opacity: 0;
+  transform: translateX(-100px); /* Initial position, adjust as needed */
+  transition: all 0.6s ease; /* Control animation speed */
+}
+
+.about-picture.slide-in {
+  opacity: 1;
+  transform: translateX(0); /* Final position */
+  }
+  
