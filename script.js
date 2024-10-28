@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (count < target) {
         counter.innerText = `${Math.ceil(count + increment)}`;
-        setTimeout(updateCounter, 50); // Increase delay to slow down
+        setTimeout(updateCounter, 100); // Increase delay to slow down
       } else {
         counter.innerText = target;
       }
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.5 } // Adjust threshold for when the animation should trigger
+    { threshold: 0.1 } // Adjust threshold for when the animation should trigger
   );
 
   observer.observe(picture);
