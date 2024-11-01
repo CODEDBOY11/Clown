@@ -109,6 +109,10 @@ button:hover {
 .about-picture.slide-in {
   opacity: 1;
   transform: translateX(0);
+  height: 80px;
+  border: 1px solid white;
+  border-radius: 30px;
+  
 }
 img{
   height: 80px;
