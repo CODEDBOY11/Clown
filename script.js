@@ -18,20 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCounter();
   });
   const counterObserver = new IntersectionObserver(
-    (entries, observer) => {
+    (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-           startCounting(entry.target);
-          observer.unobserve(entry.target); // Stop observing after animation starts
+          startCounting(entry.target);
+        } else {
+          entry.target.innerText = "0"; // Reset counter when out of view
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 } // Adjust threshold if needed
   );
-
   counters.forEach((counter) => counterObserver.observe(counter));
-
   
+
+
 
   // Filtering Projects
   const filterButtons = document.querySelectorAll(".filter-btn");
