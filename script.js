@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to animate counting up to the target number
   const animateCounter = (counter) => {
     const target = +counter.getAttribute("data-target");
-    const increment = target / 200; // Adjust this value for slower or faster counting
+    const increment = target / 400; // Slower counting speed with higher divisor
     let count = 0;
 
     const updateCounter = () => {
@@ -19,24 +19,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // IntersectionObserver to restart counter when entering the viewport
   const counters = document.querySelectorAll(".counter");
-  
-// IntersectionObserver to restart counter when entering the viewport
-const observerCallback = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.innerText = "0"; // Reset counter text to 0
-      animateCounter(entry.target); // Restart the counting animation
-    }
+
+  const observerCallback = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.innerText = "0"; // Reset counter text to 0
+        animateCounter(entry.target); // Restart the counting animation
+      }
+    });
+  };
+
+  const observerOptions = { threshold: 0.1 };
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  counters.forEach((counter) => {
+    observer.observe(counter); // Observe each counter element
   });
-};
 
-const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-counters.forEach((counter) => {
-  observer.observe(counter); // Observe each counter element
-});
-  
-  
   // Filtering Projects
   const filterButtons = document.querySelectorAll(".filter-btn");
   const projectCards = document.querySelectorAll(".project-card");
@@ -107,3 +106,4 @@ counters.forEach((counter) => {
     observer.observe(picture);
   }
 });
+      
