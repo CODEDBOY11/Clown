@@ -1,36 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Function to start counting from zero to target
+  // Function to start counting up to the target number
   const startCounting = (counter) => {
     const target = +counter.getAttribute("data-target");
-    const increment = target / 700; // Smaller increment for a slower counter
+    const increment = target / 700; // Adjust speed here
+    let count = 0;
 
     const updateCounter = () => {
-      const count = +counter.innerText;
       if (count < target) {
-        counter.innerText = `${Math.ceil(count + increment)}`;
-        setTimeout(updateCounter, 100); // Slower update rate
+        count += increment;
+        counter.innerText = `${Math.ceil(count)}`;
+        setTimeout(updateCounter, 50); // Adjust delay here
       } else {
-        counter.innerText = target; // Ensure it ends exactly at target
+        counter.innerText = target; // Ensure it ends on the exact target number
       }
     };
-    counter.innerText = "0"; // Reset to zero before counting
     updateCounter();
   };
 
-  // Observer for counters
+  // Initialize IntersectionObserver
   const counters = document.querySelectorAll(".counter");
   const counterObserver = new IntersectionObserver(
-    (entries) => {
+    (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          startCounting(entry.target);
+          startCounting(entry.target); // Start counting when in view
+          observer.unobserve(entry.target); // Stop observing to prevent re-triggering
         }
       });
     },
     { threshold: 0.1 } // Adjust threshold if needed
   );
 
-  counters.forEach((counter) => counterObserver.observe(counter));
+  // Start observing each counter element
+  counters.forEach((counter) => {
+    counter.innerText = "0"; // Reset counter text initially to 0
+    counterObserver.observe(counter);
+  });
+});
+
 
   // Filtering Projects
   const filterButtons = document.querySelectorAll(".filter-btn");
