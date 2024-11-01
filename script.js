@@ -22,26 +22,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const observerOptions = {
     threshold: 0.1, // Trigger when 10% of the counter is visible
   };
-
-  const observerCallback = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.innerText = "0"; // Reset counter text to 0
-        animateCounter(entry.target); // Restart the counting animation
-        observer.unobserve(entry.target); // Stop observing after counting
-      }
-    });
-  };
-
-  const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-  counters.forEach((counter) => {
-    counter.innerText = "0"; // Initial count to 0
-    observer.observe(counter); // Observe each counter element
+// IntersectionObserver to restart counter when entering the viewport
+const observerCallback = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.innerText = "0"; // Reset counter text to 0
+      animateCounter(entry.target); // Restart the counting animation
+    }
   });
+};
 
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+counters.forEach((counter) => {
+  observer.observe(counter); // Observe each counter element
+});
   
-
+  
   // Filtering Projects
   const filterButtons = document.querySelectorAll(".filter-btn");
   const projectCards = document.querySelectorAll(".project-card");
