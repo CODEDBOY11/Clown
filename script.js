@@ -19,9 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // IntersectionObserver to restart counter when entering the viewport
   const counters = document.querySelectorAll(".counter");
-  const observerOptions = {
-    threshold: 0.1, // Trigger when 10% of the counter is visible
-  };
+  
 // IntersectionObserver to restart counter when entering the viewport
 const observerCallback = (entries) => {
   entries.forEach((entry) => {
