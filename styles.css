@@ -137,25 +137,4 @@ button:hover {
       display: flex;
     }
 
-    /* Media Query for Mobile Screens */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background: white;
-        width: 100%;
-        position: absolute;
-        top: 64px;
-        left: 0;
-        z-index: 10;
-      }
-      .nav-links a {
-        padding: 10px;
-        border-bottom: 1px solid #eaeaea;
-      }
-    }
-
-
+    
