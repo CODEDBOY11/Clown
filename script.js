@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   // Function to animate counting up to the target number
   const animateCounter = (counter) => {
@@ -24,21 +23,24 @@ document.addEventListener("DOMContentLoaded", () => {
     threshold: 0.1, // Trigger when 10% of the counter is visible
   };
 
-  const observerCallback = (entries) => {
+  const observerCallback = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.innerText = "0"; // Reset counter text to 0
         animateCounter(entry.target); // Restart the counting animation
+        observer.unobserve(entry.target); // Stop observing after counting
       }
     });
-  }
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
 
   counters.forEach((counter) => {
     counter.innerText = "0"; // Initial count to 0
     observer.observe(counter); // Observe each counter element
   });
-});
 
+  
 
   // Filtering Projects
   const filterButtons = document.querySelectorAll(".filter-btn");
