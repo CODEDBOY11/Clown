@@ -2,29 +2,29 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to animate counting up to the target number
   const animateCounter = (counter) => {
     const target = +counter.getAttribute("data-target");
-    const increment = target / 400; // Slower counting speed with higher divisor
+    const increment = target / 400; // Slow counting speed
     let count = 0;
 
     const updateCounter = () => {
       if (count < target) {
         count += increment;
         counter.innerText = `${Math.ceil(count)}`;
-        requestAnimationFrame(updateCounter); // Smoother animation
+        requestAnimationFrame(updateCounter);
       } else {
-        counter.innerText = target; // Set to target to complete the count
+        counter.innerText = target;
       }
     };
     updateCounter();
   };
 
-  // IntersectionObserver to restart counter when entering the viewport
+  // Set up IntersectionObserver for counters
   const counters = document.querySelectorAll(".counter");
 
   const observerCallback = (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.innerText = "0"; // Reset counter text to 0
-        animateCounter(entry.target); // Restart the counting animation
+        entry.target.innerText = "0";
+        animateCounter(entry.target);
       }
     });
   };
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver(observerCallback, observerOptions);
 
   counters.forEach((counter) => {
-    observer.observe(counter); // Observe each counter element
+    observer.observe(counter);
   });
 
   // Filtering Projects
@@ -71,14 +71,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Form submission handling
   document.getElementById("contact-form").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the default form submission
+    event.preventDefault();
 
     // Send the email using EmailJS
     emailjs.sendForm("service_ucn8i03", "template_gbk8t29", this)
       .then(function (response) {
         console.log("SUCCESS!", response.status, response.text);
         alert("Message sent successfully!");
-        document.getElementById("contact-form").reset(); // Reset the form after submission
+        document.getElementById("contact-form").reset();
       })
       .catch(function (error) {
         console.log("FAILED...", error);
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const picture = document.querySelector(".about-picture");
 
   if (picture) {
-    const observer = new IntersectionObserver(
+    const imageObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -100,10 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      { threshold: 0.1 } // Trigger when 10% of the image is in view
+      { threshold: 0.1 }
     );
 
-    observer.observe(picture);
+    imageObserver.observe(picture);
   }
 });
-      
+    
