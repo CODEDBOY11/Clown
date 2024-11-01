@@ -1,40 +1,43 @@
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Function to start counting up to the target number
-  const startCounting = (counter) => {
+  // Function to animate counting up to the target number
+  const animateCounter = (counter) => {
     const target = +counter.getAttribute("data-target");
-    const increment = target / 700; // Adjust speed here
+    const increment = target / 200; // Adjust this value for slower or faster counting
     let count = 0;
 
     const updateCounter = () => {
       if (count < target) {
         count += increment;
         counter.innerText = `${Math.ceil(count)}`;
-        setTimeout(updateCounter, 50); // Adjust delay here
+        requestAnimationFrame(updateCounter); // Smoother animation
       } else {
-        counter.innerText = target; // Ensure it ends on the exact target number
+        counter.innerText = target; // Set to target to complete the count
       }
     };
     updateCounter();
   };
 
-  // Initialize IntersectionObserver
+  // IntersectionObserver to restart counter when entering the viewport
   const counters = document.querySelectorAll(".counter");
-  const counterObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          startCounting(entry.target); // Start counting when in view
-          observer.unobserve(entry.target); // Stop observing to prevent re-triggering
-        }
-      });
-    },
-    { threshold: 0.1 } // Adjust threshold if needed
-  );
+  const observerOptions = {
+    threshold: 0.1, // Trigger when 10% of the counter is visible
+  };
 
-  // Start observing each counter element
+  const observerCallback = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.innerText = "0"; // Reset counter text to 0
+        animateCounter(entry.target); // Restart the counting animation
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
   counters.forEach((counter) => {
-    counter.innerText = "0"; // Reset counter text initially to 0
-    counterObserver.observe(counter);
+    counter.innerText = "0"; // Initial count to 0
+    observer.observe(counter); // Observe each counter element
   });
 });
 
