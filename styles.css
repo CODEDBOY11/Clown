@@ -101,15 +101,11 @@ button:hover {
 }
 .about-picture {
   opacity: 0;
-  transform: translateX(-50px); /* Start slightly to the left */
-  transition: opacity 1.5s ease, transform 1.5s ease; /* Slow transition */
-  border: 1px solid white;
-  border-radius: 50px;
-  height:250px;
-  width:100%;
+  transform: translateX(-100px);
+  transition: transform 1s ease-out, opacity 1s ease-out;
 }
 
 .about-picture.slide-in {
   opacity: 1;
-  transform: translateX(0); /* Slide into place */
+  transform: translateX(0);
 }
