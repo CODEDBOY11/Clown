@@ -31,9 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         animateCounter(entry.target); // Restart the counting animation
       }
     });
-  };
-
-  const observer = new IntersectionObserver(observerCallback, observerOptions);
+  }
 
   counters.forEach((counter) => {
     counter.innerText = "0"; // Initial count to 0
