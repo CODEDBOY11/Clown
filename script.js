@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to animate counting up to the target number
   const animateCounter = (counter) => {
     const target = +counter.getAttribute("data-target");
-    const increment = target / 500; // Adjust this value for slower or faster counting
+    const increment = target / 200; // Adjust this value for slower or faster counting
     let count = 0;
 
     const updateCounter = () => {
