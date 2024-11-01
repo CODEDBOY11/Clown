@@ -1,36 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Animated Counters
-  const counters = document.querySelectorAll(".counter");
-  counters.forEach((counter) => {
-    counter.innerText = "0";
-    const updateCounter = () => {
-      const target = +counter.getAttribute("data-target");
-      const count = +counter.innerText;
-      const increment = target / 700; // Smaller increment for a slower counter
+  // Function to start counting from zero to target
+  const startCounting = (counter) => {
+    const target = +counter.getAttribute("data-target");
+    const increment = target / 700; // Smaller increment for a slower counter
 
+    const updateCounter = () => {
+      const count = +counter.innerText;
       if (count < target) {
         counter.innerText = `${Math.ceil(count + increment)}`;
-        setTimeout(updateCounter, 100); // Increase delay to slow down
+        setTimeout(updateCounter, 100); // Slower update rate
       } else {
-        counter.innerText = target;
+        counter.innerText = target; // Ensure it ends exactly at target
       }
     };
+    counter.innerText = "0"; // Reset to zero before counting
     updateCounter();
-  });
+  };
+
+  // Observer for counters
+  const counters = document.querySelectorAll(".counter");
   const counterObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           startCounting(entry.target);
-        } 
+        }
       });
     },
     { threshold: 0.1 } // Adjust threshold if needed
   );
+
   counters.forEach((counter) => counterObserver.observe(counter));
-  
-
-
 
   // Filtering Projects
   const filterButtons = document.querySelectorAll(".filter-btn");
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  
+  // Observer for image slide-in effect
   const picture = document.querySelector(".about-picture");
 
   if (picture) {
@@ -102,4 +102,3 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(picture);
   }
 });
-  
