@@ -22,9 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           startCounting(entry.target);
-        } else {
-          entry.target.innerText = "0"; // Reset counter when out of view
-        }
+        } 
       });
     },
     { threshold: 0.1 } // Adjust threshold if needed
