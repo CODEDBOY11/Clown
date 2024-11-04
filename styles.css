@@ -116,4 +116,5 @@ button:hover {
  #hamburger{
   z-index: 1;
   background-color: white !important; 
+  color: black !important; 
  }
