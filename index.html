@@ -32,18 +32,27 @@
       <nav class="container mx-auto flex justify-between items-center p-4 container">
         <p class="text-2xl font-bold">CODED WEB DEV.</p>
       </nav>
-       <!-- Hamburger Icon -->
-      <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+         <nav class="container mx-auto flex justify-between items-center p-4">
+      <p class="text-2xl font-bold">CODED WEB DEV.</p>
+      <!-- Hamburger Icon -->
+      <button
+        id="hamburger"
+        class="text-3xl md:hidden focus:outline-none"
+      >
+        &#9776;
+      </button>
+      <!-- Mobile Menu (hidden by default) -->
+      <div
+        id="mobileMenu"
+        class="fixed top-0 left-0 w-full h-screen bg-white text-black flex flex-col items-center justify-center space-y-6 hidden md:hidden"
+      >
+        <a href="#home" class="text-xl font-semibold">Home</a>
+        <a href="#about" class="text-xl font-semibold">About</a>
+        <a href="#projects" class="text-xl font-semibold">Projects</a>
+        <a href="#contact" class="text-xl font-semibold">Contact</a>
       </div>
-      <!-- Navigation Links -->
-      <div class="nav-links flex space-x-8">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
+    </nav>
+      
     
     </header>
 
