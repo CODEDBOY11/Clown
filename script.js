@@ -106,7 +106,16 @@ document.addEventListener("DOMContentLoaded", () => {
     imageObserver.observe(picture);
   }
 });
-    function toggleMenu() {
-      const navLinks = document.querySelector('.nav-links');
-      navLinks.classList.toggle('active');
-    }
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    hamburger.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden"); // Show/hide the menu
+
+      // Toggle hamburger icon between '☰' and '×'
+      if (mobileMenu.classList.contains("hidden")) {
+        hamburger.innerHTML = "&#9776;"; // Hamburger icon
+      } else {
+        hamburger.innerHTML = "&times;"; // "X" symbol
+      }
+    });
