@@ -114,9 +114,9 @@ button:hover {
   transform: translateX(0);
 }
  #hamburger{
-  z-index: 1 !important;
+  
   background-color: white !important; 
   color: black !important; 
-  position: absolute;
-  right: 20px;
+  position: relative;
+white-space: no-wrap;
  }
