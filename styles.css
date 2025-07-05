@@ -118,7 +118,7 @@ button:hover {
   background-color: white !important; 
   color: black !important; 
   position: relative;
-white-space: no-wrap;
+white-space: nowrap; 
    padding: 0;
    
  }
